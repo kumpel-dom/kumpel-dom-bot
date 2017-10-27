@@ -1,17 +1,19 @@
-package com.kumpel.dom.bot.telegraminterface;
+package com.kumpel.dom.bot.view;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+import com.kumpel.dom.bot.controller.CallBack;
+import com.kumpel.dom.bot.controller.Message;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 
-public class TelegramClient extends TelegramLongPollingBot {
+public class BotView extends TelegramLongPollingBot {
 
 	private static File file = new File("Token.txt");
 

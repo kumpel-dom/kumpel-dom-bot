@@ -1,6 +1,6 @@
 package com.kumpel.dom.bot;
 
-import com.kumpel.dom.bot.telegraminterface.TelegramClient;
+import com.kumpel.dom.bot.view.BotView;
 import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.TelegramBotsApi;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
@@ -14,7 +14,7 @@ public class Main {
         TelegramBotsApi botsApi = new TelegramBotsApi();
 
         try {
-            botsApi.registerBot(new TelegramClient());
+            botsApi.registerBot(new BotView());
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }

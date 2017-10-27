@@ -1,4 +1,4 @@
-package com.kumpel.dom.bot.telegraminterface;
+package com.kumpel.dom.bot.controller;
 
 import org.telegram.telegrambots.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.api.objects.Update;

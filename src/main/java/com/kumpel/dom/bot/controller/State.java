@@ -1,7 +1,7 @@
-package com.kumpel.dom.bot.telegraminterface;
+package com.kumpel.dom.bot.controller;
 
 
-import com.kumpel.dom.bot.serveriot.ConnectionServer;
+import com.kumpel.dom.bot.model.ConnectionServer;
 
 public class State {
 

@@ -1,4 +1,4 @@
-package com.kumpel.dom.bot.telegraminterface;
+package com.kumpel.dom.bot.controller;
 
 import java.util.ArrayList;
 import java.util.List;

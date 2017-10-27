@@ -1,5 +1,5 @@
 
-package com.kumpel.dom.bot.serveriot;
+package com.kumpel.dom.bot.model;
 
 
 import java.net.HttpURLConnection;
