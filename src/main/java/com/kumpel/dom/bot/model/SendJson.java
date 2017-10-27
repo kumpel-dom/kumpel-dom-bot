@@ -1,8 +1,5 @@
-/*
-package com.kumpel.dom.bot.serveriot;
+package com.kumpel.dom.bot.model;
 
 public class SendJson {
 
 }
-
-*/
