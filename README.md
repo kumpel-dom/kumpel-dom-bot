@@ -1,7 +1,5 @@
 # Smart home bot
 
-[![Build Status](https://travis-ci.org/alexNeto/smart-home-bot.svg?branch=master)](https://travis-ci.org/alexNeto/smart-home-bot)
-
 ## section Materiais e Métodos
 
 Para facilitar o desenvolvimento o projeto foi separado em duas partes, um que aborda o  _chatbot_ e outro o dispositivo que vai controlar a casa.

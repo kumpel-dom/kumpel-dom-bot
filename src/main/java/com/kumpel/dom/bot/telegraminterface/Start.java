@@ -1,4 +1,4 @@
-package ihc.smartBot.telegramInterface;
+package com.kumpel.dom.bot.telegraminterface;
 
 import java.util.ArrayList;
 import java.util.List;
