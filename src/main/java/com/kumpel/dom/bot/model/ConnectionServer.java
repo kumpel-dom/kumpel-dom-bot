@@ -1,7 +1,8 @@
 
 package com.kumpel.dom.bot.model;
 
-
+// Não está funcionando, pode ser a internet daqui
+// import com.google.gson.Gson;
 import org.json.JSONObject;
 
 // import java.net.HttpURLConnection;
@@ -16,7 +17,9 @@ public class ConnectionServer {
 
     public ConnectionServer() {
         try {
-            this.json = ReceiveJson.readJsonFromUrl(stem);
+           this.json = ReceiveJson.readJsonFromUrl(stem);
+            //Albums albums = gson.fromJson(IOUtils.toString(new URL(url)), Albums.class);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

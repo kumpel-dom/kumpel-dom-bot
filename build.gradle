@@ -3,6 +3,14 @@ version '1.0-SNAPSHOT'
 
 buildscript {
     ext.kotlin_version = '1.1.51'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
 }
 
 
@@ -19,10 +27,9 @@ repositories {
 }
 
 dependencies {
-    compile 'com.beust:klaxon:0.30'
+    compile 'com.google.code.gson:gson:2.8.2'
     compile "org.telegram:telegrambots:3.4"
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre8"
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
