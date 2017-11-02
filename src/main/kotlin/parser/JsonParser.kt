@@ -28,6 +28,7 @@ class JsonParser {
     }
 
     fun nodeid(json: JSONObject?, i: Int): String {
+
         return json?.getJSONArray("node")?.getJSONObject(i)?.getInt("nodeid")!!.toString()
     }
 
@@ -70,5 +71,35 @@ class JsonParser {
         return map
     }
 
+    fun parserActions(json: JSONObject?, node: Int?): HashMap<String?, String?> {
+        val map: HashMap<String?, String?> = HashMap()
+        var key: String?
+        var value: String?
+        val length: Int = json?.getJSONArray("node")?.length()!!.toInt()
+
+        var i: Int = 0
+        if (node == -1) {
+            while (i < length) {
+                var j: Int = 0
+                while (j < json.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.length()!!.toInt()) {
+                    key = """${nodeid(json, i)}."""
+                    key += """${areaid(json, i, j)}"""
+                    value = areaname(json, i, j)
+                    map.put(key, value)
+                    j++
+                }
+                i++
+            }
+        } else {
+            while (i < json.getJSONArray("node")?.getJSONObject(node!!)?.getJSONArray("area")?.length()!!.toInt()) {
+                key = """${nodeid(json, node!!)}."""
+                key += """${areaid(json, node, i)}"""
+                value = areaname(json, node, i)
+                map.put(key, value)
+                i++
+            }
+        }
+        return map
+    }
 }
 

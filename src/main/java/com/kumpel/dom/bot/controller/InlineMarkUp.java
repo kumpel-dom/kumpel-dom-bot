@@ -13,7 +13,7 @@ import org.telegram.telegrambots.api.objects.replykeyboard.buttons.InlineKeyboar
 public class InlineMarkUp {
 
 
-    InlineKeyboardMarkup InlineNodes() {
+    public InlineKeyboardMarkup inlineNodes() {
         JSONObject node = new ConnectionServer().getJson();
         Map<Integer, String> map = new parser.JsonParser().parserNode(node);
 
@@ -31,7 +31,7 @@ public class InlineMarkUp {
         return markupInline;
     }
 
-    InlineKeyboardMarkup InlineAreas(int node) {
+    public InlineKeyboardMarkup inlineAreas(int node) {
         JSONObject json = new ConnectionServer().getJson();
         Map<String, String> map = new parser.JsonParser().parserArea(json, node);
 
@@ -49,7 +49,25 @@ public class InlineMarkUp {
         return markupInline;
     }
 
-    InlineKeyboardMarkup ligar() {
+    public InlineKeyboardMarkup inlineActions(){
+        JSONObject json = new ConnectionServer().getJson();
+        Map<String, String> map = new parser.JsonParser().parserActions(json, -1);
+
+        InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
+        List<List<InlineKeyboardButton>> rowsInline = new ArrayList<List<InlineKeyboardButton>>();
+        List<InlineKeyboardButton> row1 = new ArrayList<InlineKeyboardButton>();
+
+        for (String x : map.keySet()) {
+            row1.add(new InlineKeyboardButton().setText(map.get(x)).setCallbackData(x));
+            rowsInline.add(row1);
+            row1 = new ArrayList<>();
+        }
+        markupInline.setKeyboard(rowsInline);
+
+        return markupInline;
+    }
+
+    public InlineKeyboardMarkup ligar() {
         InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
         List<List<InlineKeyboardButton>> rowsInline = new ArrayList<List<InlineKeyboardButton>>();
         List<InlineKeyboardButton> row1 = new ArrayList<InlineKeyboardButton>();
@@ -70,7 +88,7 @@ public class InlineMarkUp {
         return markupInline;
     }
 
-    List<InlineKeyboardButton> acionaTodos() {
+    private List<InlineKeyboardButton> acionaTodos() {
 
         List<InlineKeyboardButton> row1 = new ArrayList<InlineKeyboardButton>();
         row1.add(new InlineKeyboardButton().setText("liga todos").setCallbackData("todos"));
@@ -78,7 +96,7 @@ public class InlineMarkUp {
         return row1;
     }
 
-    List<InlineKeyboardButton> desacionaTodos() {
+    private List<InlineKeyboardButton> desacionaTodos() {
 
         List<InlineKeyboardButton> row1 = new ArrayList<InlineKeyboardButton>();
         row1.add(new InlineKeyboardButton().setText("desliga todos").setCallbackData("desligaTodos"));
