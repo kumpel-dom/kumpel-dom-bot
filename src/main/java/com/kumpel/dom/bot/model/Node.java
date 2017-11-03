@@ -2,14 +2,14 @@ package com.kumpel.dom.bot.model;
 
 public class Node {
 
-    private Int nodeid;
+    private int nodeid;
     private String nodename;
 
-    public Int getNodeid() {
+    public int getNodeid() {
         return nodeid;
     }
 
-    public void setNodeid(Int nodeid) {
+    public void setId(int nodeid) {
         this.nodeid = nodeid;
     }
 
@@ -17,7 +17,7 @@ public class Node {
         return nodename;
     }
 
-    public void setNodename(String nodename) {
+    public void setName(String nodename) {
         this.nodename = nodename;
     }
 }

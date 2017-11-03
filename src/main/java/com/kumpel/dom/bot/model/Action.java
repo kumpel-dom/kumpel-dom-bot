@@ -10,7 +10,7 @@ public class Action {
         return actionid;
     }
 
-    public void setActionid(int actionid) {
+    public void setId(int actionid) {
         this.actionid = actionid;
     }
 
@@ -18,15 +18,15 @@ public class Action {
         return actionname;
     }
 
-    public void setActionname(String actionname) {
+    public void setName(String actionname) {
         this.actionname = actionname;
     }
 
-    public int getAreaid() {
+    public int getForeignid() {
         return areaid;
     }
 
-    public void setAreaid(int areaid) {
+    public void setForeignid(int areaid) {
         this.areaid = areaid;
     }
 }

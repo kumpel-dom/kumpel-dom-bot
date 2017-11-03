@@ -4,12 +4,13 @@ public class Area {
 
     private int areaid;
     private String arename;
+    private int nodeid;
 
     public int getAreaid() {
         return areaid;
     }
 
-    public void setAreaid(int areaid) {
+    public void setId(int areaid) {
         this.areaid = areaid;
     }
 
@@ -17,17 +18,17 @@ public class Area {
         return arename;
     }
 
-    public void setArename(String arename) {
+    public void setName(String arename) {
         this.arename = arename;
     }
 
-    public int getNodeid() {
+    public int getForeignid() {
         return nodeid;
     }
 
-    public void setNodeid(int nodeid) {
+    public void setForeignid(int nodeid) {
         this.nodeid = nodeid;
     }
 
-    private int nodeid;
+
 }

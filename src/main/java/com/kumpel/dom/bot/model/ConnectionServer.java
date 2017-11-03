@@ -1,9 +1,7 @@
-
-package com.kumpel.dom.bot.model;
+import com.kumpel.dom.bot.model.ReceiveJson;
+import org.json.JSONObject;
 
 // Não está funcionando, pode ser a internet daqui
-// import com.google.gson.Gson;
-import org.json.JSONObject;
 
 // import java.net.HttpURLConnection;
 //import java.net.URL;
