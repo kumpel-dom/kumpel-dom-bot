@@ -5,9 +5,6 @@ import java.sql.DriverManager;
 
 public class DataBaseConnection implements ConnectionInterface {
 
-
-
-    // Conectar ao banco
     public static Connection connection() throws Exception {
         Class.forName(DR);
         Connection conn = DriverManager.getConnection(URL, UN, PW);

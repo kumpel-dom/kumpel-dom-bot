@@ -1,6 +1,8 @@
-package com.kumpel.dom.bot.controller.bdcontroller;
+package com.kumpel.dom.bot.controller.bdcontroller.dao;
 
-import com.kumpel.dom.bot.model.Action;
+import com.kumpel.dom.bot.controller.bdcontroller.DataBaseConnection;
+import com.kumpel.dom.bot.controller.bdcontroller.DataBaseInterface;
+import com.kumpel.dom.bot.model.Area;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,18 +11,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ActionDAO implements DataBaseInterface<Action> {
-
+public class AreaDAO implements DataBaseInterface<Area> {
     @Override
-    public void create(Action table) {
+    public void create(Area table) {
         StringBuilder sql = new StringBuilder();
-        sql.append("INSERT INTO actions(actionid, actionname, areaid) ");
+        sql.append("INSERT INTO areas(areaid, areaname, nodeid) ");
         sql.append("VALUES (?, ?, ?)");
 
         try (Connection conn = DataBaseConnection.connection();
              PreparedStatement pstmt = conn.prepareStatement(sql.toString())) {
-            pstmt.setInt(1, table.getActionid());
-            pstmt.setString(2, table.getActionname());
+            pstmt.setInt(1, table.getAreaid());
+            pstmt.setString(2, table.getArename());
             pstmt.setInt(3, table.getForeignid());
             pstmt.executeUpdate();
         } catch (Exception e) {
@@ -29,21 +30,21 @@ public class ActionDAO implements DataBaseInterface<Action> {
     }
 
     @Override
-    public List<Action> read() {
-        String sql = "SELECT * FROM actions";
+    public List<Area> read() {
+        String sql = "SELECT * FROM areas";
 
         try (Connection conn = DataBaseConnection.connection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             ResultSet result = pstmt.executeQuery();
 
-            List<Action> list = new ArrayList<>();
+            List<Area> list = new ArrayList<>();
 
             while (result.next()) {
-                Action row = new Action();
-                row.setId(result.getInt("actionid"));
-                row.setName(result.getString("actionname"));
-                row.setForeignid(result.getInt("areaid"));
+                Area row = new Area();
+                row.setId(result.getInt("areaid"));
+                row.setName(result.getString("areaname"));
+                row.setForeignid(result.getInt("nodeid"));
                 list.add(row);
             }
             return list;
@@ -56,17 +57,17 @@ public class ActionDAO implements DataBaseInterface<Action> {
     }
 
     @Override
-    public void update(Action table) {
+    public void update(Area table) {
         StringBuilder sql = new StringBuilder();
-        sql.append("UPDATE actions ");
-        sql.append("SET actionname=? ");
-        sql.append("WHELE actionid=?");
+        sql.append("UPDATE areas ");
+        sql.append("SET areaname=? ");
+        sql.append("WHELE areaid=?");
 
         try (Connection conn = DataBaseConnection.connection();
              PreparedStatement pstmt = conn.prepareStatement(sql.toString())) {
 
-            pstmt.setString(1, table.getActionname());
-            pstmt.setInt(2, table.getActionid());
+            pstmt.setString(1, table.getArename());
+            pstmt.setInt(2, table.getAreaid());
             pstmt.execute();
 
         } catch (SQLException e) {
@@ -77,15 +78,15 @@ public class ActionDAO implements DataBaseInterface<Action> {
     }
 
     @Override
-    public void delete(Action table) {
+    public void delete(Area table) {
         StringBuilder sql = new StringBuilder();
-        sql.append("DELETE FROM actions ");
-        sql.append("WHERE actionid=?");
+        sql.append("DELETE FROM areas ");
+        sql.append("WHERE areaid=?");
 
         try (Connection conn = DataBaseConnection.connection();
              PreparedStatement pstmt = conn.prepareStatement(sql.toString())) {
 
-            pstmt.setInt(1, table.getActionid());
+            pstmt.setInt(1, table.getAreaid());
             pstmt.execute();
 
         } catch (SQLException e) {

@@ -12,61 +12,6 @@ import org.telegram.telegrambots.api.objects.replykeyboard.buttons.InlineKeyboar
 
 public class InlineMarkUp {
 
-
-    public InlineKeyboardMarkup inlineNodes() {
-        JSONObject node = new ConnectionServer().getJson();
-        Map<Integer, String> map = new parser.JsonParser().parserNode(node);
-
-        InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
-        List<List<InlineKeyboardButton>> rowsInline = new ArrayList<List<InlineKeyboardButton>>();
-        List<InlineKeyboardButton> row1 = new ArrayList<InlineKeyboardButton>();
-
-        for (int x : map.keySet()) {
-            row1.add(new InlineKeyboardButton().setText(map.get(x)).setCallbackData("" + x));
-            rowsInline.add(row1);
-            row1 = new ArrayList<>();
-        }
-        markupInline.setKeyboard(rowsInline);
-
-        return markupInline;
-    }
-
-    public InlineKeyboardMarkup inlineAreas(int node) {
-        JSONObject json = new ConnectionServer().getJson();
-        Map<String, String> map = new parser.JsonParser().parserArea(json, node);
-
-        InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
-        List<List<InlineKeyboardButton>> rowsInline = new ArrayList<List<InlineKeyboardButton>>();
-        List<InlineKeyboardButton> row1 = new ArrayList<InlineKeyboardButton>();
-
-        for (String x : map.keySet()) {
-            row1.add(new InlineKeyboardButton().setText(map.get(x)).setCallbackData(x));
-            rowsInline.add(row1);
-            row1 = new ArrayList<>();
-        }
-        markupInline.setKeyboard(rowsInline);
-
-        return markupInline;
-    }
-
-    public InlineKeyboardMarkup inlineActions(){
-        JSONObject json = new ConnectionServer().getJson();
-        Map<String, String> map = new parser.JsonParser().parserActions(json, -1);
-
-        InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
-        List<List<InlineKeyboardButton>> rowsInline = new ArrayList<List<InlineKeyboardButton>>();
-        List<InlineKeyboardButton> row1 = new ArrayList<InlineKeyboardButton>();
-
-        for (String x : map.keySet()) {
-            row1.add(new InlineKeyboardButton().setText(map.get(x)).setCallbackData(x));
-            rowsInline.add(row1);
-            row1 = new ArrayList<>();
-        }
-        markupInline.setKeyboard(rowsInline);
-
-        return markupInline;
-    }
-
     public InlineKeyboardMarkup ligar() {
         InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
         List<List<InlineKeyboardButton>> rowsInline = new ArrayList<List<InlineKeyboardButton>>();

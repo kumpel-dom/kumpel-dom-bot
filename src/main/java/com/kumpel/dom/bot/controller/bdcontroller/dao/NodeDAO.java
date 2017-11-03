@@ -1,6 +1,8 @@
-package com.kumpel.dom.bot.controller.bdcontroller;
+package com.kumpel.dom.bot.controller.bdcontroller.dao;
 
-import com.kumpel.dom.bot.model.Area;
+import com.kumpel.dom.bot.controller.bdcontroller.DataBaseConnection;
+import com.kumpel.dom.bot.controller.bdcontroller.DataBaseInterface;
+import com.kumpel.dom.bot.model.Node;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,40 +11,39 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AreaDAO implements DataBaseInterface<Area>{
+public class NodeDAO implements DataBaseInterface<Node> {
+
     @Override
-    public void create(Area table) {
+    public void create(Node node) {
         StringBuilder sql = new StringBuilder();
-        sql.append("INSERT INTO areas(areaid, areaname, nodeid) ");
-        sql.append("VALUES (?, ?, ?)");
+        sql.append("INSERT INTO nodes(nodeid, nodename) ");
+        sql.append("VALUES (?, ?)");
 
         try (Connection conn = DataBaseConnection.connection();
              PreparedStatement pstmt = conn.prepareStatement(sql.toString())) {
-            pstmt.setInt(1, table.getAreaid());
-            pstmt.setString(2, table.getArename());
-            pstmt.setInt(3, table.getForeignid());
-            pstmt.executeUpdate();
+            pstmt.setInt(1, node.getNodeid());
+            pstmt.setString(2, node.getNodename());
+            pstmt.execute();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    public List<Area> read() {
-        String sql = "SELECT * FROM areas";
+    public List<Node> read() {
+        String sql = "SELECT * FROM nodes";
 
         try (Connection conn = DataBaseConnection.connection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             ResultSet result = pstmt.executeQuery();
 
-            List<Area> list = new ArrayList<>();
+            List<Node> list = new ArrayList<>();
 
             while (result.next()) {
-                Area row = new Area();
-                row.setId(result.getInt("areaid"));
-                row.setName(result.getString("areaname"));
-                row.setForeignid(result.getInt("nodeid"));
+                Node row = new Node();
+                row.setId(result.getInt("nodeid"));
+                row.setName(result.getString("nodename"));
                 list.add(row);
             }
             return list;
@@ -55,17 +56,17 @@ public class AreaDAO implements DataBaseInterface<Area>{
     }
 
     @Override
-    public void update(Area table) {
+    public void update(Node table) {
         StringBuilder sql = new StringBuilder();
-        sql.append("UPDATE areas ");
-        sql.append("SET areaname=? ");
-        sql.append("WHELE areaid=?");
+        sql.append("UPDATE nodes ");
+        sql.append("SET nodename=? ");
+        sql.append("WHELE nodeid=?");
 
         try (Connection conn = DataBaseConnection.connection();
              PreparedStatement pstmt = conn.prepareStatement(sql.toString())) {
 
-            pstmt.setString(1, table.getArename());
-            pstmt.setInt(2, table.getAreaid());
+            pstmt.setString(1, table.getNodename());
+            pstmt.setInt(2, table.getNodeid());
             pstmt.execute();
 
         } catch (SQLException e) {
@@ -76,15 +77,15 @@ public class AreaDAO implements DataBaseInterface<Area>{
     }
 
     @Override
-    public void delete(Area table) {
+    public void delete(Node table) {
         StringBuilder sql = new StringBuilder();
-        sql.append("DELETE FROM areas ");
-        sql.append("WHERE areaid=?");
+        sql.append("DELETE FROM nodes ");
+        sql.append("WHERE nodeid=?");
 
         try (Connection conn = DataBaseConnection.connection();
              PreparedStatement pstmt = conn.prepareStatement(sql.toString())) {
 
-            pstmt.setInt(1, table.getAreaid());
+            pstmt.setInt(1, table.getNodeid());
             pstmt.execute();
 
         } catch (SQLException e) {

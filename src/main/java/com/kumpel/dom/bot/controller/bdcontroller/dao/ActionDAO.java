@@ -1,6 +1,8 @@
-package com.kumpel.dom.bot.controller.bdcontroller;
+package com.kumpel.dom.bot.controller.bdcontroller.dao;
 
-import com.kumpel.dom.bot.model.Node;
+import com.kumpel.dom.bot.controller.bdcontroller.DataBaseConnection;
+import com.kumpel.dom.bot.controller.bdcontroller.DataBaseInterface;
+import com.kumpel.dom.bot.model.Action;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,18 +11,19 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NodeDAO implements DataBaseInterface<Node> {
+public class ActionDAO implements DataBaseInterface<Action> {
 
     @Override
-    public void create(Node node) {
+    public void create(Action table) {
         StringBuilder sql = new StringBuilder();
-        sql.append("INSERT INTO nodes(nodeid, nodename) ");
-        sql.append("VALUES (?, ?)");
+        sql.append("INSERT INTO actions(actionid, actionname, areaid) ");
+        sql.append("VALUES (?, ?, ?)");
 
         try (Connection conn = DataBaseConnection.connection();
              PreparedStatement pstmt = conn.prepareStatement(sql.toString())) {
-            pstmt.setInt(1, node.getNodeid());
-            pstmt.setString(2, node.getNodename());
+            pstmt.setInt(1, table.getActionid());
+            pstmt.setString(2, table.getActionname());
+            pstmt.setInt(3, table.getForeignid());
             pstmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -28,20 +31,21 @@ public class NodeDAO implements DataBaseInterface<Node> {
     }
 
     @Override
-    public List<Node> read() {
-        String sql = "SELECT * FROM nodes";
+    public List<Action> read() {
+        String sql = "SELECT * FROM actions";
 
         try (Connection conn = DataBaseConnection.connection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             ResultSet result = pstmt.executeQuery();
 
-            List<Node> list = new ArrayList<>();
+            List<Action> list = new ArrayList<>();
 
             while (result.next()) {
-                Node row = new Node();
-                row.setId(result.getInt("nodeid"));
-                row.setName(result.getString("nodename"));
+                Action row = new Action();
+                row.setId(result.getInt("actionid"));
+                row.setName(result.getString("actionname"));
+                row.setForeignid(result.getInt("areaid"));
                 list.add(row);
             }
             return list;
@@ -54,17 +58,17 @@ public class NodeDAO implements DataBaseInterface<Node> {
     }
 
     @Override
-    public void update(Node table) {
+    public void update(Action table) {
         StringBuilder sql = new StringBuilder();
-        sql.append("UPDATE nodes ");
-        sql.append("SET nodename=? ");
-        sql.append("WHELE nodeid=?");
+        sql.append("UPDATE actions ");
+        sql.append("SET actionname=? ");
+        sql.append("WHELE actionid=?");
 
         try (Connection conn = DataBaseConnection.connection();
              PreparedStatement pstmt = conn.prepareStatement(sql.toString())) {
 
-            pstmt.setString(1, table.getNodename());
-            pstmt.setInt(2, table.getNodeid());
+            pstmt.setString(1, table.getActionname());
+            pstmt.setInt(2, table.getActionid());
             pstmt.execute();
 
         } catch (SQLException e) {
@@ -75,15 +79,15 @@ public class NodeDAO implements DataBaseInterface<Node> {
     }
 
     @Override
-    public void delete(Node table) {
+    public void delete(Action table) {
         StringBuilder sql = new StringBuilder();
-        sql.append("DELETE FROM nodes ");
-        sql.append("WHERE nodeid=?");
+        sql.append("DELETE FROM actions ");
+        sql.append("WHERE actionid=?");
 
         try (Connection conn = DataBaseConnection.connection();
              PreparedStatement pstmt = conn.prepareStatement(sql.toString())) {
 
-            pstmt.setInt(1, table.getNodeid());
+            pstmt.setInt(1, table.getActionid());
             pstmt.execute();
 
         } catch (SQLException e) {

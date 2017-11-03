@@ -27,6 +27,7 @@ repositories {
 
 dependencies {
     compile "org.telegram:telegrambots:3.4"
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.6'
     compile 'org.litote.kmongo:kmongo-native:3.5.0'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
     testCompile group: 'junit', name: 'junit', version: '4.12'
