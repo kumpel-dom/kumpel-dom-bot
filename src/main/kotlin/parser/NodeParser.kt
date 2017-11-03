@@ -21,7 +21,7 @@ class NodeParser {
          * Call a static method which returns the
          * length of the "node" array in the json document
          */
-        val length: Int = CompanionObjects.nodeLength(json)
+        val length: Int = CompanionObjects.nodeLength(json)!!
         var i = 0
         while (i < length) {
             /**
@@ -30,7 +30,7 @@ class NodeParser {
              * specified in the received json
              */
             val node = Node()
-            node.setId(CompanionObjects.nodeid(json, i))
+            node.setId(CompanionObjects.nodeid(json, i)!!)
             node.setName(CompanionObjects.nodename(json, i))
             list.add(node)
             i++

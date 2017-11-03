@@ -21,19 +21,19 @@ class ActionParser {
          * Iterates over the node, area and action arrays in the json document
          */
         var i = 0
-        while (i < CompanionObjects.nodeLength(json)) {
+        while (i < CompanionObjects.nodeLength(json)!!) {
             var j = 0
-            while (j < CompanionObjects.areaLength(json, i)) {
+            while (j < CompanionObjects.areaLength(json, i)!!) {
                 var k = 0
-                while (k < CompanionObjects.actionLength(json, i, j)) {
+                while (k < CompanionObjects.actionLength(json, i, j)!!) {
                     /**
                      * Create a nre Area object
                      * then set its actionid, actionname and areaid to the parsed from json
                      */
                     val action = Action()
-                    action.setId(CompanionObjects.actionid(json, i, j, k))
+                    action.setId(CompanionObjects.actionid(json, i, j, k)!!)
                     action.setName(CompanionObjects.actionname(json, i, j, k))
-                    action.foreignid = CompanionObjects.areaid(json, i, j)
+                    action.foreignid = CompanionObjects.areaid(json, i, j)!!
                     list.add(action)
                     k++
                 }

@@ -21,17 +21,17 @@ class AreaParser {
          * Iterates over the node and area arrays in the json document
          */
         var i = 0
-        while (i < CompanionObjects.nodeLength(json)) {
+        while (i < CompanionObjects.nodeLength(json)!!) {
             var j = 0
-            while (j < CompanionObjects.areaLength(json, i)) {
+            while (j < CompanionObjects.areaLength(json, i)!!) {
                 /**
                  * Create a nre Area object
                  * then set its areaid, areaname and nodeid to the parsed from json
                  */
                 val area = Area()
-                area.setId(CompanionObjects.areaid(json, i, j))
+                area.setId(CompanionObjects.areaid(json, i, j)!!)
                 area.setName(CompanionObjects.areaname(json, i, j))
-                area.foreignid = CompanionObjects.nodeid(json, i)
+                area.foreignid = CompanionObjects.nodeid(json, i)!!
                 list.add(area)
                 j++
             }
