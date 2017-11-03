@@ -1,6 +1,5 @@
 package com.kumpel.dom.bot.model;
 
-import com.kumpel.dom.bot.model.ReceiveJson;
 import org.json.JSONObject;
 
 // Não está funcionando, pode ser a internet daqui
@@ -17,7 +16,7 @@ public class ConnectionServer {
 
     public ConnectionServer() {
         try {
-           this.json = ReceiveJson.readJsonFromUrl(stem);
+            this.json = ReceiveJson.readJsonFromUrl(stem);
         } catch (Exception e) {
             e.printStackTrace();
         }

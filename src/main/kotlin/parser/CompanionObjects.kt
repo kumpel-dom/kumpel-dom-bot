@@ -2,24 +2,66 @@ package parser
 
 import org.json.JSONObject
 
+/**
+ *
+ * This class have a set of static methods to help DRY the parse
+ *
+ * @author alexNeto
+ *
+ */
 class CompanionObjects {
 
     companion object {
 
+        /**
+         * This static method parse the length of the node array from the json document
+         *
+         * @author alexNeto
+         *
+         * @param json the type is a JSONObject
+         * @return length of the node array
+         */
         fun nodeLength(json: JSONObject?): Int {
-            return json?.getJSONArray("node")?.length()!!.toInt()
+            return json?.getJSONArray("node")?.length()!!
         }
 
+        /**
+         * This static method parse names from the node array of the json document
+         *
+         * @author alexNeto
+         *
+         * @param json the type is a JSONObject
+         * @param i Int type, the index for the array
+         * @return nodeid from parser json
+         */
         fun nodeid(json: JSONObject?, i: Int): Int {
             return json?.getJSONArray("node")?.getJSONObject(i)?.getInt("nodeid")!!
         }
 
+        /**
+         * This static method parse ids from the node array of the json document
+         *
+         * @author alexNeto
+         *
+         * @param json the type is a JSONObject
+         * @param i Int type, the index for the array
+         * @return nodename from parser json
+         */
         fun nodename(json: JSONObject?, i: Int): String {
             return json?.getJSONArray("node")?.getJSONObject(i)?.getString("nodename")!!
         }
 
+        /**
+         * This static method parse the length of the area array from the json document
+         *
+         * @author alexNeto
+         *
+         * @param json the type is a JSONObject
+         * @param i Int type, the index for the array
+         * @return length of the area array
+         */
         fun areaLength(json: JSONObject?, i: Int): Int {
-            return json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.length()!!.toInt()
+            return json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.length()!!
         }
 
         fun areaid(json: JSONObject?, i: Int, j: Int): Int {
@@ -30,8 +72,18 @@ class CompanionObjects {
             return json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.getJSONObject(j)?.getString("areaname")
         }
 
+        /**
+         * This static method parse the length of the action array from the json document
+         *
+         * @author alexNeto
+         *
+         * @param json JSONObject type, the json to be parsed
+         * @param i Int type, the index for the array
+         * @param j Int type, the index for the array inside the array
+         * @return length of the area array
+         */
         fun actionLength(json: JSONObject?, i: Int, j: Int): Int {
-            return json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.getJSONObject(j)?.getJSONArray("action")?.length()!!.toInt()
+            return json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.getJSONObject(j)?.getJSONArray("action")?.length()!!
         }
 
         fun actionid(json: JSONObject?, i: Int, j: Int, k: Int): Int {
