@@ -1,6 +1,7 @@
 package parser
 
 import org.json.JSONObject
+import javax.validation.constraints.Null
 
 /**
  *
@@ -21,8 +22,13 @@ class CompanionObjects {
          * @param json the type is a JSONObject
          * @return length of the node array
          */
-        fun nodeLength(json: JSONObject?): Int? {
-            return json?.getJSONArray("node")?.length()
+        fun nodeLength(json: JSONObject?): Int {
+            try {
+                return json?.getJSONArray("node")?.length()!!
+            } catch (e: NullPointerException) {
+                e.printStackTrace()
+            }
+            return 0
         }
 
         /**
@@ -34,8 +40,13 @@ class CompanionObjects {
          * @param i Int type, the index for the array
          * @return nodeid from parser json
          */
-        fun nodeid(json: JSONObject?, i: Int): Int? {
-            return json?.getJSONArray("node")?.getJSONObject(i)?.getInt("nodeid")
+        fun nodeid(json: JSONObject?, i: Int): Int {
+            try {
+                return json?.getJSONArray("node")?.getJSONObject(i)?.getInt("nodeid")!!
+            } catch (e: NullPointerException) {
+                e.printStackTrace()
+            }
+            return 0
         }
 
         /**
@@ -47,8 +58,13 @@ class CompanionObjects {
          * @param i Int type, the index for the array
          * @return nodename from parser json
          */
-        fun nodename(json: JSONObject?, i: Int): String? {
-            return json?.getJSONArray("node")?.getJSONObject(i)?.getString("nodename")
+        fun nodename(json: JSONObject?, i: Int): String {
+            try {
+                return json?.getJSONArray("node")?.getJSONObject(i)?.getString("nodename")!!
+            } catch (e: NullPointerException) {
+                e.printStackTrace()
+            }
+            return ""
         }
 
         /**
@@ -60,8 +76,13 @@ class CompanionObjects {
          * @param i Int type, the index for the array
          * @return length of the area array
          */
-        fun areaLength(json: JSONObject?, i: Int): Int? {
-            return json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.length()
+        fun areaLength(json: JSONObject?, i: Int): Int {
+            try{
+                return json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.length()!!
+            } catch (e: NullPointerException){
+                e.printStackTrace()
+            }
+            return 0
         }
 
 
@@ -75,8 +96,13 @@ class CompanionObjects {
          * @param j Int type, the index for the inner array
          * @return areaid from parser json
          */
-        fun areaid(json: JSONObject?, i: Int, j: Int): Int? {
-            return json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.getJSONObject(j)?.getInt("areaid")
+        fun areaid(json: JSONObject?, i: Int, j: Int): Int {
+            try {
+                return json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.getJSONObject(j)?.getInt("areaid")!!
+            } catch (e: NullPointerException){
+                e.printStackTrace()
+            }
+            return 0
         }
 
         /**
@@ -89,8 +115,13 @@ class CompanionObjects {
          * @param j Int type, the index for the inner array
          * @return areaname from parser json
          */
-        fun areaname(json: JSONObject?, i: Int, j: Int): String? {
-            return json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.getJSONObject(j)?.getString("areaname")
+        fun areaname(json: JSONObject?, i: Int, j: Int): String {
+            try{
+                return json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.getJSONObject(j)?.getString("areaname")!!
+            } catch (e: NullPointerException) {
+                e.printStackTrace()
+            }
+            return ""
         }
 
         /**
@@ -103,8 +134,13 @@ class CompanionObjects {
          * @param j Int type, the index for the array inside the array
          * @return length of the area array
          */
-        fun actionLength(json: JSONObject?, i: Int, j: Int): Int? {
-            return json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.getJSONObject(j)?.getJSONArray("action")?.length()
+        fun actionLength(json: JSONObject?, i: Int, j: Int): Int {
+            try {
+                return json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.getJSONObject(j)?.getJSONArray("action")?.length()!!
+            } catch (e: NullPointerException) {
+                e.printStackTrace()
+            }
+            return 0
         }
 
         /**
@@ -118,8 +154,13 @@ class CompanionObjects {
          * @param k Int type, the index of the inner inner array
          * @return actionid from parser json
          */
-        fun actionid(json: JSONObject?, i: Int, j: Int, k: Int): Int? {
-            return json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.getJSONObject(j)?.getJSONArray("action")?.getJSONObject(k)?.getInt("actionid")
+        fun actionid(json: JSONObject?, i: Int, j: Int, k: Int): Int {
+            try {
+                return json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.getJSONObject(j)?.getJSONArray("action")?.getJSONObject(k)?.getInt("actionid")!!
+            } catch (e: NullPointerException){
+                e.printStackTrace()
+            }
+            return 0
         }
 
         /**
@@ -133,8 +174,14 @@ class CompanionObjects {
          * @param k Int type, the index for the inner inner array
          * @return actionname from parser json
          */
-        fun actionname(json: JSONObject?, i: Int, j: Int, k: Int): String? {
-            return json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.getJSONObject(j)?.getJSONArray("action")?.getJSONObject(k)?.getString("actionname")
+        fun actionname(json: JSONObject?, i: Int, j: Int, k: Int): String {
+            try {
+                return json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.getJSONObject(j)?.getJSONArray("action")?.getJSONObject(k)?.getString("actionname")!!
+            } catch (e: NullPointerException){
+                e.printStackTrace()
+            }
+            return ""
+
         }
 
     }
