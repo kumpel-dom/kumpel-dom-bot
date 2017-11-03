@@ -1,7 +1,6 @@
 package parser
 
 import org.json.JSONObject
-import javax.validation.constraints.Null
 
 /**
  *
@@ -23,12 +22,13 @@ class CompanionObjects {
          * @return length of the node array
          */
         fun nodeLength(json: JSONObject?): Int {
+            var length = 0
             try {
-                return json?.getJSONArray("node")?.length()!!
+                length = json?.getJSONArray("node")?.length()!!
             } catch (e: NullPointerException) {
                 e.printStackTrace()
             }
-            return 0
+            return length
         }
 
         /**
@@ -41,12 +41,13 @@ class CompanionObjects {
          * @return nodeid from parser json
          */
         fun nodeid(json: JSONObject?, i: Int): Int {
+            var nodeid = 0
             try {
-                return json?.getJSONArray("node")?.getJSONObject(i)?.getInt("nodeid")!!
+                nodeid = json?.getJSONArray("node")?.getJSONObject(i)?.getInt("nodeid")!!
             } catch (e: NullPointerException) {
                 e.printStackTrace()
             }
-            return 0
+            return nodeid
         }
 
         /**
@@ -59,12 +60,13 @@ class CompanionObjects {
          * @return nodename from parser json
          */
         fun nodename(json: JSONObject?, i: Int): String {
+            var nodename = ""
             try {
-                return json?.getJSONArray("node")?.getJSONObject(i)?.getString("nodename")!!
+                nodename = json?.getJSONArray("node")?.getJSONObject(i)?.getString("nodename")!!
             } catch (e: NullPointerException) {
                 e.printStackTrace()
             }
-            return ""
+            return nodename
         }
 
         /**
@@ -77,12 +79,13 @@ class CompanionObjects {
          * @return length of the area array
          */
         fun areaLength(json: JSONObject?, i: Int): Int {
-            try{
-                return json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.length()!!
-            } catch (e: NullPointerException){
+            var length = 0
+            try {
+                length = json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.length()!!
+            } catch (e: NullPointerException) {
                 e.printStackTrace()
             }
-            return 0
+            return length
         }
 
 
@@ -97,12 +100,13 @@ class CompanionObjects {
          * @return areaid from parser json
          */
         fun areaid(json: JSONObject?, i: Int, j: Int): Int {
+            var areaid = 0
             try {
-                return json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.getJSONObject(j)?.getInt("areaid")!!
-            } catch (e: NullPointerException){
+                areaid = json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.getJSONObject(j)?.getInt("areaid")!!
+            } catch (e: NullPointerException) {
                 e.printStackTrace()
             }
-            return 0
+            return areaid
         }
 
         /**
@@ -116,12 +120,13 @@ class CompanionObjects {
          * @return areaname from parser json
          */
         fun areaname(json: JSONObject?, i: Int, j: Int): String {
-            try{
-                return json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.getJSONObject(j)?.getString("areaname")!!
+            var areaname = ""
+            try {
+                areaname = json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.getJSONObject(j)?.getString("areaname")!!
             } catch (e: NullPointerException) {
                 e.printStackTrace()
             }
-            return ""
+            return areaname
         }
 
         /**
@@ -135,12 +140,13 @@ class CompanionObjects {
          * @return length of the area array
          */
         fun actionLength(json: JSONObject?, i: Int, j: Int): Int {
+            var length = 0
             try {
-                return json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.getJSONObject(j)?.getJSONArray("action")?.length()!!
+                length = json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.getJSONObject(j)?.getJSONArray("action")?.length()!!
             } catch (e: NullPointerException) {
                 e.printStackTrace()
             }
-            return 0
+            return length
         }
 
         /**
@@ -155,12 +161,13 @@ class CompanionObjects {
          * @return actionid from parser json
          */
         fun actionid(json: JSONObject?, i: Int, j: Int, k: Int): Int {
+            var actionid = 0
             try {
-                return json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.getJSONObject(j)?.getJSONArray("action")?.getJSONObject(k)?.getInt("actionid")!!
-            } catch (e: NullPointerException){
+                actionid = json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.getJSONObject(j)?.getJSONArray("action")?.getJSONObject(k)?.getInt("actionid")!!
+            } catch (e: NullPointerException) {
                 e.printStackTrace()
             }
-            return 0
+            return actionid
         }
 
         /**
@@ -175,14 +182,13 @@ class CompanionObjects {
          * @return actionname from parser json
          */
         fun actionname(json: JSONObject?, i: Int, j: Int, k: Int): String {
+            var actionname = ""
             try {
-                return json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.getJSONObject(j)?.getJSONArray("action")?.getJSONObject(k)?.getString("actionname")!!
-            } catch (e: NullPointerException){
+                actionname = json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.getJSONObject(j)?.getJSONArray("action")?.getJSONObject(k)?.getString("actionname")!!
+            } catch (e: NullPointerException) {
                 e.printStackTrace()
             }
-            return ""
-
+            return actionname
         }
-
     }
 }
