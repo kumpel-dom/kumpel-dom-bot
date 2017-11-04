@@ -61,7 +61,7 @@ public class AreaDAO implements DataBaseInterface<Area> {
         StringBuilder sql = new StringBuilder();
         sql.append("UPDATE areas ");
         sql.append("SET areaname=? ");
-        sql.append("WHELE areaid=?");
+        sql.append("WHERE areaid=?");
 
         try (Connection conn = DataBaseConnection.connection();
              PreparedStatement pstmt = conn.prepareStatement(sql.toString())) {

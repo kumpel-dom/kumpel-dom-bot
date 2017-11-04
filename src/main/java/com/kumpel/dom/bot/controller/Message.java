@@ -1,6 +1,7 @@
 package com.kumpel.dom.bot.controller;
 
 import com.kumpel.dom.bot.controller.cmdcontroller.Start;
+import com.kumpel.dom.bot.controller.cmdcontroller.Sync;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Update;
 //import parser.JsonParser;
@@ -16,6 +17,7 @@ public class Message {
             return message;
         } else if (update.getMessage().getText().equals("/sync")) {
             message = new SendMessage().setChatId(chat_id).setText("You send /sync");
+            new Sync();
             return message;
         }  else if (update.getMessage().getText().equals("")) {
             return null;

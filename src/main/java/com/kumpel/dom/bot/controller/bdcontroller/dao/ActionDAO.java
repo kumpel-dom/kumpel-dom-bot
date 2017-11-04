@@ -62,7 +62,7 @@ public class ActionDAO implements DataBaseInterface<Action> {
         StringBuilder sql = new StringBuilder();
         sql.append("UPDATE actions ");
         sql.append("SET actionname=? ");
-        sql.append("WHELE actionid=?");
+        sql.append("WHERE actionid=?");
 
         try (Connection conn = DataBaseConnection.connection();
              PreparedStatement pstmt = conn.prepareStatement(sql.toString())) {

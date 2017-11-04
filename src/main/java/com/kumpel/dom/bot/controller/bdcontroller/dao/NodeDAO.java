@@ -60,7 +60,7 @@ public class NodeDAO implements DataBaseInterface<Node> {
         StringBuilder sql = new StringBuilder();
         sql.append("UPDATE nodes ");
         sql.append("SET nodename=? ");
-        sql.append("WHELE nodeid=?");
+        sql.append("WHERE nodeid=?");
 
         try (Connection conn = DataBaseConnection.connection();
              PreparedStatement pstmt = conn.prepareStatement(sql.toString())) {
