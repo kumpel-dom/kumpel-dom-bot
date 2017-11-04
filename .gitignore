@@ -107,3 +107,5 @@ Temporary Items
 
 Token.txt
 ConnectionInterface.java
+src/main/resources/
+src/test/resources/

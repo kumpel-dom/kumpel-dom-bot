@@ -10,9 +10,7 @@ import org.json.JSONObject;
 import java.util.Iterator;
 import java.util.List;
 
-public class Start {
-
-    private JSONObject json = new ConnectionServer().getJson();
+public class Start implements JsonGetInterface {
 
     public Start() {
         createNodes();

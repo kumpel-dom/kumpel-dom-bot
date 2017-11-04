@@ -1,8 +1,6 @@
 package com.kumpel.dom.bot.controller;
 
-import com.kumpel.dom.bot.controller.cmdcontroller.ShowNodes;
-import com.kumpel.dom.bot.controller.cmdcontroller.Start;
-import com.kumpel.dom.bot.controller.cmdcontroller.Sync;
+import com.kumpel.dom.bot.controller.cmdcontroller.*;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Update;
 //import parser.JsonParser;
@@ -23,6 +21,14 @@ public class Message {
         } else if (update.getMessage().getText().equals("/node")) {
             message = new SendMessage().setChatId(chat_id).setText("You send /node");
             message.setReplyMarkup(new ShowNodes().nodes());
+            return message;
+        } else if (update.getMessage().getText().equals("/area")) {
+            message = new SendMessage().setChatId(chat_id).setText("You send /area");
+            message.setReplyMarkup(new ShowAreas().areas());
+            return message;
+        } else if (update.getMessage().getText().equals("/action")) {
+            message = new SendMessage().setChatId(chat_id).setText("You send /action");
+            message.setReplyMarkup(new ShowActions().actions());
             return message;
         } else if (update.getMessage().getText().equals("")) {
             return null;
