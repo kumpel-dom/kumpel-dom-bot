@@ -16,6 +16,7 @@ before_install:
             String UN = new String();
             String PW = new String();
             String DR = new String();
+
         }" > src/main/java/com/kumpel/dom/bot/controller/bdcontroller/ConnectionInterface.java
 
 after_success:
