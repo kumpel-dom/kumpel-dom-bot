@@ -10,13 +10,12 @@ before_install:
  - chmod +x gradlew
  - echo "package com.kumpel.dom.bot.controller.bdcontroller;
           public interface ConnectionInterface {
-
             String HN = new String();
             String DB = new String();
             String URL = new String();
             String UN = new String();
             String PW = new String();
-            String DR = new String(com.mysql.jdbc.Driver);
+            String DR = new String();
         }" > src/main/java/com/kumpel/dom/bot/controller/bdcontroller/ConnectionInterface.java
 
 after_success:
