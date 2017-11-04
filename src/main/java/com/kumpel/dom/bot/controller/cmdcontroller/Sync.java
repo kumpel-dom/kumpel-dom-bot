@@ -5,16 +5,12 @@ import com.kumpel.dom.bot.controller.bdcontroller.dao.AreaDAO;
 import com.kumpel.dom.bot.controller.bdcontroller.dao.NodeDAO;
 import com.kumpel.dom.bot.model.Action;
 import com.kumpel.dom.bot.model.Area;
-import com.kumpel.dom.bot.model.ConnectionServer;
 import com.kumpel.dom.bot.model.Node;
-import org.json.JSONObject;
 
 import java.util.Iterator;
 import java.util.List;
 
-public class Sync {
-
-    private JSONObject json = new ConnectionServer().getJson();
+public class Sync implements JsonGetInterface {
 
     public Sync() {
         updateNodes();
