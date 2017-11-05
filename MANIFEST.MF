@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Built-By: alexNeto
+Build-Jdk: 1.8
+Main-Class: com.kumpel.dom.bot.Main
