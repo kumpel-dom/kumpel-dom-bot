@@ -3,11 +3,11 @@
 [![Build Status](https://travis-ci.org/kumpel-dom/kumpel-dom-bot.svg?branch=master)](https://travis-ci.org/kumpel-dom/kumpel-dom-bot)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a1f480a2fc904bad8a4b711b4333d899)](https://www.codacy.com/app/alexNeto/kumpel-dom-bot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kumpel-dom/kumpel-dom-bot&amp;utm_campaign=Badge_Grade)
 [![Maintainability](https://api.codeclimate.com/v1/badges/5c97a7c6b9c0eb6fcae9/maintainability)](https://codeclimate.com/github/kumpel-dom/kumpel-dom-bot/maintainability)
-[![codecov](https://codecov.io/gh/kumpel-dom/kumpel-dom-bot/branch/master/graph/badge.svg)](https://codecov.io/gh/kumpel-dom/kumpel-dom-bot)
+[![Coverage Status](https://coveralls.io/repos/github/kumpel-dom/kumpel-dom-bot/badge.svg?branch=master)](https://coveralls.io/github/kumpel-dom/kumpel-dom-bot?branch=master)
 [![CircleCI](https://circleci.com/gh/kumpel-dom/kumpel-dom-bot/tree/master.svg?style=svg)](https://circleci.com/gh/kumpel-dom/kumpel-dom-bot/tree/master)
 [![GitHub license](https://img.shields.io/github/license/kumpel-dom/kumpel-dom-bot.svg)](https://github.com/kumpel-dom/kumpel-dom-bot/blob/master/LICENSE)
 
-## section Materiais e Métodos
+## Materiais e Métodos
 
 Para facilitar o desenvolvimento o projeto foi separado em duas partes, um que aborda o  _chatbot_ e outro o dispositivo que vai controlar a casa.
 Esses dois contextos deven funcionar de forma independente.

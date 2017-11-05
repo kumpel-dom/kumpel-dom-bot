@@ -2,7 +2,9 @@ package com.kumpel.dom.bot.controller.bdcontroller.dao;
 
 import com.kumpel.dom.bot.controller.bdcontroller.DataBaseConnection;
 import com.kumpel.dom.bot.controller.bdcontroller.DataBaseInterface;
+import com.kumpel.dom.bot.controller.cmdcontroller.Sync;
 import com.kumpel.dom.bot.model.Action;
+import com.mysql.jdbc.CommunicationsException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -25,6 +27,8 @@ public class ActionDAO implements DataBaseInterface<Action> {
             pstmt.setString(2, table.getActionname());
             pstmt.setInt(3, table.getForeignid());
             pstmt.executeUpdate();
+        } catch (CommunicationsException e) {
+            Sync.exc = e;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -49,6 +53,8 @@ public class ActionDAO implements DataBaseInterface<Action> {
                 list.add(row);
             }
             return list;
+        } catch (CommunicationsException e) {
+            Sync.exc = e;
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -70,7 +76,8 @@ public class ActionDAO implements DataBaseInterface<Action> {
             pstmt.setString(1, table.getActionname());
             pstmt.setInt(2, table.getActionid());
             pstmt.execute();
-
+        } catch (CommunicationsException e) {
+            Sync.exc = e;
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {

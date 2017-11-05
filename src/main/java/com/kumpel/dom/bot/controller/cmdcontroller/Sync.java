@@ -12,6 +12,8 @@ import java.util.List;
 
 public class Sync implements JsonGetInterface {
 
+    public static Exception exc = null;
+
     public Sync() {
         updateNodes();
         updateAreas();

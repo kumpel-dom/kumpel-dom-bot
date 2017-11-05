@@ -10,7 +10,7 @@ public class CallBack {
 		int index = getIndex(callData.substring(0, 1));
 		String acao = callData.substring(1);
 
-		if ("on".equals(acao)) {
+		if (callData) {
 			answer = State.luz(index, "-on");
 		} else if ("off".equals(acao)) {
 			answer = State.luz(index, "-off");
