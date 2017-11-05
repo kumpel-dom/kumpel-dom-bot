@@ -1,5 +1,6 @@
-package com.kumpel.dom.bot.model;
+package com.kumpel.dom.bot.controller;
 
+import com.kumpel.dom.bot.controller.bdcontroller.ReceiveJson;
 import org.json.JSONObject;
 
 // Não está funcionando, pode ser a internet daqui
@@ -11,7 +12,7 @@ public class ConnectionServer {
 
     // private String stem = "http://172.16.8.68/";
     // private String stem = "http://192.168.1.76/";
-    private String stem = "http://www.json-generator.com/api/json/get/bUbkoVhZVe?indent=2";
+    private String stem = "http://www.json-generator.com/api/json/get/cevqfAUYbS?indent=2";
     private JSONObject json;
 
     public ConnectionServer() {

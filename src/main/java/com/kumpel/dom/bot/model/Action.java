@@ -5,6 +5,7 @@ public class Action {
     private int actionid;
     private String actionname;
     private int areaid;
+    private String state;
 
     public int getActionid() {
         return actionid;
@@ -28,5 +29,13 @@ public class Action {
 
     public void setForeignid(int areaid) {
         this.areaid = areaid;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 }

@@ -190,5 +190,27 @@ class CompanionObjects {
             }
             return actionname
         }
+
+        /**
+         * This static method parse state of a action (if a door is closed or a light is on) from the action array of the json document
+         *
+         * @author alexNeto
+         *
+         * @param json the type is a JSONObject
+         * @param i Int type, the index for the array
+         * @param j Int type, the index for the inner array
+         * @param k Int type, the index for the inner inner array
+         * @return String type, state from parser json
+         */
+        fun state(json: JSONObject?, i: Int, j: Int, k: Int): String {
+            var state = ""
+            try {
+                state = json?.getJSONArray("node")?.getJSONObject(i)?.getJSONArray("area")?.getJSONObject(j)?.getJSONArray("action")?.getJSONObject(k)?.getString("state")!!
+            } catch (e: NullPointerException) {
+                e.printStackTrace()
+            }
+            return state
+        }
+
     }
 }

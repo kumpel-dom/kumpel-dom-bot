@@ -34,6 +34,7 @@ class ActionParser {
                     action.setId(CompanionObjects.actionid(json, i, j, k))
                     action.setName(CompanionObjects.actionname(json, i, j, k))
                     action.foreignid = CompanionObjects.areaid(json, i, j)
+                    action.state = CompanionObjects.state(json, i, j, k)
                     list.add(action)
                     k++
                 }

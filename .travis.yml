@@ -4,7 +4,12 @@ sudo: false
 jdk:
   - oraclejdk8
 
+script: ./gradlew build jacocoTestReport
 sudo: required
+
+env:
+  matrix:
+  - TERM=dumb
 
 before_install:
  - chmod +x gradlew
@@ -20,4 +25,5 @@ before_install:
         }" > src/main/java/com/kumpel/dom/bot/controller/bdcontroller/ConnectionInterface.java
 
 after_success:
+  - ./gradlew jacocoRootReport coveralls
   - bash <(curl -s https://codecov.io/bash) -t token <(curl -s https://codecov.io/bash)

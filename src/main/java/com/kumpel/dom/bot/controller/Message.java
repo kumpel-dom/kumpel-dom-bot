@@ -1,7 +1,6 @@
 package com.kumpel.dom.bot.controller;
 
 import com.kumpel.dom.bot.controller.cmdcontroller.*;
-import com.mysql.jdbc.CommunicationsException;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Update;
 import com.vdurmont.emoji.EmojiParser;

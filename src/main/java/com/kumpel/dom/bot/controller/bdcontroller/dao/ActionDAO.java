@@ -18,14 +18,15 @@ public class ActionDAO implements DataBaseInterface<Action> {
     @Override
     public void create(Action table) {
         StringBuilder sql = new StringBuilder();
-        sql.append("INSERT INTO actions(actionid, actionname, areaid) ");
-        sql.append("VALUES (?, ?, ?)");
+        sql.append("INSERT INTO actions(actionid, actionname, areaid, state) ");
+        sql.append("VALUES (?, ?, ?, ?)");
 
         try (Connection conn = DataBaseConnection.connection();
              PreparedStatement pstmt = conn.prepareStatement(sql.toString())) {
             pstmt.setInt(1, table.getActionid());
             pstmt.setString(2, table.getActionname());
             pstmt.setInt(3, table.getForeignid());
+            pstmt.setString(4, table.getState());
             pstmt.executeUpdate();
         } catch (CommunicationsException e) {
             Sync.exc = e;
@@ -50,6 +51,7 @@ public class ActionDAO implements DataBaseInterface<Action> {
                 row.setId(result.getInt("actionid"));
                 row.setName(result.getString("actionname"));
                 row.setForeignid(result.getInt("areaid"));
+                row.setState(result.getString("state"));
                 list.add(row);
             }
             return list;
@@ -67,14 +69,16 @@ public class ActionDAO implements DataBaseInterface<Action> {
     public void update(Action table) {
         StringBuilder sql = new StringBuilder();
         sql.append("UPDATE actions ");
-        sql.append("SET actionname=? ");
+        sql.append("SET actionname=?, ");
+        sql.append("state=? ");
         sql.append("WHERE actionid=?");
 
         try (Connection conn = DataBaseConnection.connection();
              PreparedStatement pstmt = conn.prepareStatement(sql.toString())) {
 
             pstmt.setString(1, table.getActionname());
-            pstmt.setInt(2, table.getActionid());
+            pstmt.setString(2, table.getState());
+            pstmt.setInt(3, table.getActionid());
             pstmt.execute();
         } catch (CommunicationsException e) {
             Sync.exc = e;

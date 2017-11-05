@@ -1,4 +1,4 @@
-package com.kumpel.dom.bot.model;
+package com.kumpel.dom.bot.controller.bdcontroller;
 
 import java.io.BufferedReader;
 import java.io.IOException;
