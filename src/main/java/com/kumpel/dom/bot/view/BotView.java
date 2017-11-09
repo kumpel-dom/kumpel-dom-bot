@@ -13,51 +13,36 @@ import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 
-public class BotView extends TelegramLongPollingBot {
+public class BotView extends TelegramLongPollingBot implements Token {
 
-	private static File file = new File("Token.txt");
+    @SuppressWarnings("deprecation")
+    public void onUpdateReceived(Update update) {
 
-	@SuppressWarnings("deprecation")
-	public void onUpdateReceived(Update update) {
+        boolean messageTest = update.hasMessage() && update.getMessage().hasText();
 
-		boolean messageTest = update.hasMessage() && update.getMessage().hasText();
+        if (messageTest) {
+            SendMessage message = Message.message(update);
+            try {
+                sendMessage(message);
+            } catch (TelegramApiException e) {
+                e.printStackTrace();
+            }
+        } else if (update.hasCallbackQuery()) {
+            EditMessageText newMessage = CallBack.callBack(update);
+            try {
+                editMessageText(newMessage);
+            } catch (TelegramApiException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
-		if (messageTest) {
-			SendMessage message = Message.message(update);
-			try {
-				sendMessage(message);
-			} catch (TelegramApiException e) {
-				e.printStackTrace();
-			}
-		} else if (update.hasCallbackQuery()) {
-			EditMessageText newMessage = CallBack.callBack(update);
-			try {
-				editMessageText(newMessage);
-			} catch (TelegramApiException e) {
-				e.printStackTrace();
-			}
-		}
-	}
+    public String getBotUsername() {
+        return "homeBot";
+    }
 
-	public String getBotUsername() {
-		return "homeBot";
-	}
-
-	@Override
-	public String getBotToken() {
-		try {
-			return read(file);
-		} catch (Exception e) {
-			return null;
-		}
-	}
-
-	private String read(File file) throws IOException {
-		try (FileReader fileReader = new FileReader(file); BufferedReader reader = new BufferedReader(fileReader)) {
-			return reader.readLine();
-		} catch (IOException e) {
-			// TODO fazer tratamento de exc
-		}
-		return null;
-	}
+    @Override
+    public String getBotToken() {
+        return TOKEN;
+    }
 }

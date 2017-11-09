@@ -3,6 +3,7 @@ sudo: false
 
 jdk:
   - oraclejdk8
+  - openjdk8
 
 script: ./gradlew build jacocoTestReport
 sudo: required
@@ -12,8 +13,8 @@ env:
   - TERM=dumb
 
 before_install:
- - chmod +x gradlew
- - echo "package com.kumpel.dom.bot.controller.bdcontroller;
+  - chmod +x gradlew
+  - echo "package com.kumpel.dom.bot.controller.bdcontroller;
           public interface ConnectionInterface {
             String HN = new String();
             String DB = new String();
@@ -23,6 +24,13 @@ before_install:
             String DR = new String();
 
         }" > src/main/java/com/kumpel/dom/bot/controller/bdcontroller/ConnectionInterface.java
+
+  - echo "package com.kumpel.dom.bot.view;
+
+          public interface Token {
+
+              String TOKEN = "Paste here your Telegram Token";
+          }" > src/main/java/com/kumpel/dom/bot/view/Token.java
 
 after_success:
   - ./gradlew jacocoRootReport coveralls
