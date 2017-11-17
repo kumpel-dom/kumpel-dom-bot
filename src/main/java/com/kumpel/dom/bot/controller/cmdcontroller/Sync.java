@@ -10,7 +10,7 @@ import com.kumpel.dom.bot.model.Node;
 import java.util.Iterator;
 import java.util.List;
 
-public class Sync implements JsonGetInterface {
+public class Sync implements UpdateInterface {
 
     public static Exception exc = null;
 
@@ -20,7 +20,8 @@ public class Sync implements JsonGetInterface {
         updateActions();
     }
 
-    private void updateNodes() {
+    @Override
+    public void updateNodes() {
         List<Node> list = new parser.NodeParser().nodeParser(json);
 
         Iterator<Node> ite = list.iterator();
@@ -29,7 +30,8 @@ public class Sync implements JsonGetInterface {
         }
     }
 
-    private void updateAreas() {
+    @Override
+    public void updateAreas() {
         List<Area> list = new parser.AreaParser().areaParser(json);
 
         Iterator<Area> ite = list.iterator();
@@ -38,7 +40,8 @@ public class Sync implements JsonGetInterface {
         }
     }
 
-    private void updateActions() {
+    @Override
+    public void updateActions() {
         List<Action> list = new parser.ActionParser().actionParser(json);
 
         Iterator<Action> ite = list.iterator();

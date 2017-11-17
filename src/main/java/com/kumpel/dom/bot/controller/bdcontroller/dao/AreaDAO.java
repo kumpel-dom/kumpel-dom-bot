@@ -22,7 +22,7 @@ public class AreaDAO implements DataBaseInterface<Area> {
              PreparedStatement pstmt = conn.prepareStatement(sql.toString())) {
             pstmt.setInt(1, table.getAreaid());
             pstmt.setString(2, table.getArename());
-            pstmt.setInt(3, table.getForeignid());
+            pstmt.setInt(3, table.getForeignId());
             pstmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -44,7 +44,7 @@ public class AreaDAO implements DataBaseInterface<Area> {
                 Area row = new Area();
                 row.setId(result.getInt("areaid"));
                 row.setName(result.getString("areaname"));
-                row.setForeignid(result.getInt("nodeid"));
+                row.setForeignId(result.getInt("nodeid"));
                 list.add(row);
             }
             return list;

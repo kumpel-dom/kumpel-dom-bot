@@ -31,9 +31,9 @@ class ActionParser {
                      * then set its actionid, actionname and areaid to the parsed from json
                      */
                     val action = Action()
-                    action.setId(CompanionObjects.actionid(json, i, j, k))
-                    action.setName(CompanionObjects.actionname(json, i, j, k))
-                    action.foreignid = CompanionObjects.areaid(json, i, j)
+                    action.id = CompanionObjects.actionid(json, i, j, k)
+                    action.name = CompanionObjects.actionname(json, i, j, k)
+                    action.foreignId = CompanionObjects.areaid(json, i, j)
                     action.state = CompanionObjects.state(json, i, j, k)
                     list.add(action)
                     k++

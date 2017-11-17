@@ -29,9 +29,9 @@ class AreaParser {
                  * then set its areaid, areaname and nodeid to the parsed from json
                  */
                 val area = Area()
-                area.setId(CompanionObjects.areaid(json, i, j))
-                area.setName(CompanionObjects.areaname(json, i, j))
-                area.foreignid = CompanionObjects.nodeid(json, i)
+                area.id = CompanionObjects.areaid(json, i, j)
+                area.name = CompanionObjects.areaname(json, i, j)
+                area.foreignId = CompanionObjects.nodeid(json, i)
                 list.add(area)
                 j++
             }

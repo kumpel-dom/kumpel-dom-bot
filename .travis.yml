@@ -29,7 +29,7 @@ before_install:
 
           public interface Token {
 
-              String TOKEN = "Paste here your Telegram Token";
+              String TOKEN = new String();
           }" > src/main/java/com/kumpel/dom/bot/view/Token.java
 
 after_success:
