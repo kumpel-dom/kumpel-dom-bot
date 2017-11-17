@@ -20,8 +20,8 @@ public class AreaDAO implements DataBaseInterface<Area> {
 
         try (Connection conn = DataBaseConnection.connection();
              PreparedStatement pstmt = conn.prepareStatement(sql.toString())) {
-            pstmt.setInt(1, table.getAreaid());
-            pstmt.setString(2, table.getArename());
+            pstmt.setInt(1, table.getId());
+            pstmt.setString(2, table.getName());
             pstmt.setInt(3, table.getForeignId());
             pstmt.executeUpdate();
         } catch (Exception e) {
@@ -66,8 +66,8 @@ public class AreaDAO implements DataBaseInterface<Area> {
         try (Connection conn = DataBaseConnection.connection();
              PreparedStatement pstmt = conn.prepareStatement(sql.toString())) {
 
-            pstmt.setString(1, table.getArename());
-            pstmt.setInt(2, table.getAreaid());
+            pstmt.setString(1, table.getName());
+            pstmt.setInt(2, table.getId());
             pstmt.execute();
 
         } catch (SQLException e) {
@@ -86,7 +86,7 @@ public class AreaDAO implements DataBaseInterface<Area> {
         try (Connection conn = DataBaseConnection.connection();
              PreparedStatement pstmt = conn.prepareStatement(sql.toString())) {
 
-            pstmt.setInt(1, table.getAreaid());
+            pstmt.setInt(1, table.getId());
             pstmt.execute();
 
         } catch (SQLException e) {

@@ -21,8 +21,8 @@ public class NodeDAO implements DataBaseInterface<Node> {
 
         try (Connection conn = DataBaseConnection.connection();
              PreparedStatement pstmt = conn.prepareStatement(sql.toString())) {
-            pstmt.setInt(1, node.getNodeid());
-            pstmt.setString(2, node.getNodename());
+            pstmt.setInt(1, node.getId());
+            pstmt.setString(2, node.getName());
             pstmt.execute();
         } catch (Exception e) {
             e.printStackTrace();
@@ -65,8 +65,8 @@ public class NodeDAO implements DataBaseInterface<Node> {
         try (Connection conn = DataBaseConnection.connection();
              PreparedStatement pstmt = conn.prepareStatement(sql.toString())) {
 
-            pstmt.setString(1, table.getNodename());
-            pstmt.setInt(2, table.getNodeid());
+            pstmt.setString(1, table.getName());
+            pstmt.setInt(2, table.getId());
             pstmt.execute();
 
         } catch (SQLException e) {
@@ -85,7 +85,7 @@ public class NodeDAO implements DataBaseInterface<Node> {
         try (Connection conn = DataBaseConnection.connection();
              PreparedStatement pstmt = conn.prepareStatement(sql.toString())) {
 
-            pstmt.setInt(1, table.getNodeid());
+            pstmt.setInt(1, table.getId());
             pstmt.execute();
 
         } catch (SQLException e) {

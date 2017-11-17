@@ -23,9 +23,9 @@ public class ActionDAO implements DataBaseInterface<Action> {
 
         try (Connection conn = DataBaseConnection.connection();
              PreparedStatement pstmt = conn.prepareStatement(sql.toString())) {
-            pstmt.setInt(1, table.getActionid());
-            pstmt.setString(2, table.getActionname());
-            pstmt.setInt(3, table.getForeignid());
+            pstmt.setInt(1, table.getId());
+            pstmt.setString(2, table.getName());
+            pstmt.setInt(3, table.getId());
             pstmt.setString(4, table.getState());
             pstmt.executeUpdate();
         } catch (CommunicationsException e) {
@@ -50,7 +50,7 @@ public class ActionDAO implements DataBaseInterface<Action> {
                 Action row = new Action();
                 row.setId(result.getInt("actionid"));
                 row.setName(result.getString("actionname"));
-                row.setForeignid(result.getInt("areaid"));
+                row.setForeignId(result.getInt("areaid"));
                 row.setState(result.getString("state"));
                 list.add(row);
             }
@@ -76,9 +76,9 @@ public class ActionDAO implements DataBaseInterface<Action> {
         try (Connection conn = DataBaseConnection.connection();
              PreparedStatement pstmt = conn.prepareStatement(sql.toString())) {
 
-            pstmt.setString(1, table.getActionname());
+            pstmt.setString(1, table.getName());
             pstmt.setString(2, table.getState());
-            pstmt.setInt(3, table.getActionid());
+            pstmt.setInt(3, table.getId());
             pstmt.execute();
         } catch (CommunicationsException e) {
             Sync.exc = e;
@@ -98,7 +98,7 @@ public class ActionDAO implements DataBaseInterface<Action> {
         try (Connection conn = DataBaseConnection.connection();
              PreparedStatement pstmt = conn.prepareStatement(sql.toString())) {
 
-            pstmt.setInt(1, table.getActionid());
+            pstmt.setInt(1, table.getId());
             pstmt.execute();
 
         } catch (SQLException e) {

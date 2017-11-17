@@ -18,7 +18,7 @@ public class ShowAreas {
         Iterator<Area> areaIterator = areas.iterator();
         while (areaIterator.hasNext()) {
             Area area = areaIterator.next();
-            row1.add(new InlineKeyboardButton().setText(area.getArename()).setCallbackData("area" + area.getAreaid()));
+            row1.add(new InlineKeyboardButton().setText(area.getName()).setCallbackData("area" + area.getId()));
             rowsInline.add(row1);
             row1 = new ArrayList<>();
         }

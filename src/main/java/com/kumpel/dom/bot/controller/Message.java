@@ -32,6 +32,9 @@ public class Message {
         } else if (update.getMessage().getText().equals("/action")) {
             message = new SendMessage().setChatId(chat_id).setText("You send /action");
             message.setReplyMarkup(new ShowActions().actions());
+        } else if (update.getMessage().getText().equals("/edit")) {
+            message = new SendMessage().setChatId(chat_id).setText("You send /edit");
+            message.setReplyMarkup(new ShowActions().actions());
         } else if (update.getMessage().getText().equals("")) {
             return null;
         } else {

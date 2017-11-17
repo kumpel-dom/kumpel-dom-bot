@@ -1,5 +1,8 @@
 package com.kumpel.dom.bot.controller.cmdcontroller;
 
+import com.kumpel.dom.bot.controller.bdcontroller.dao.ActionDAO;
+import com.kumpel.dom.bot.controller.bdcontroller.dao.AreaDAO;
+import com.kumpel.dom.bot.controller.bdcontroller.dao.NodeDAO;
 import com.kumpel.dom.bot.model.Action;
 import com.kumpel.dom.bot.model.Area;
 import com.kumpel.dom.bot.model.Node;
@@ -24,12 +27,16 @@ public class Edit implements UpdateInterface {
 
     @Override
     public void updateNodes(){
-
+        new NodeDAO().update(node);
     }
 
     @Override
-    public void updateAreas(){}
+    public void updateAreas(){
+        new AreaDAO().update(area);
+    }
 
     @Override
-    public void updateActions(){}
+    public void updateActions(){
+        new ActionDAO().update(action);
+    }
 }

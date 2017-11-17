@@ -18,7 +18,7 @@ public class ShowActions {
         Iterator<Action> actionIterator = actions.iterator();
         while (actionIterator.hasNext()) {
             Action action = actionIterator.next();
-            row1.add(new InlineKeyboardButton().setText(action.getActionname()).setCallbackData("action" + action.getActionid()));
+            row1.add(new InlineKeyboardButton().setText(action.getName()).setCallbackData("action" + action.getId()));
             rowsInline.add(row1);
             row1 = new ArrayList<>();
         }
