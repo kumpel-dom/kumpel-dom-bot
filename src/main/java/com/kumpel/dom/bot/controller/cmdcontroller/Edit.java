@@ -1,11 +1,11 @@
 package com.kumpel.dom.bot.controller.cmdcontroller;
 
-import com.kumpel.dom.bot.controller.bdcontroller.dao.ActionDAO;
-import com.kumpel.dom.bot.controller.bdcontroller.dao.AreaDAO;
-import com.kumpel.dom.bot.controller.bdcontroller.dao.NodeDAO;
-import com.kumpel.dom.bot.model.Action;
-import com.kumpel.dom.bot.model.Area;
-import com.kumpel.dom.bot.model.Node;
+import com.kumpel.dom.bot.model.bd.dao.ActionDAO;
+import com.kumpel.dom.bot.model.bd.dao.AreaDAO;
+import com.kumpel.dom.bot.model.bd.dao.NodeDAO;
+import com.kumpel.dom.bot.model.pojo.Action;
+import com.kumpel.dom.bot.model.pojo.Area;
+import com.kumpel.dom.bot.model.pojo.Node;
 
 public class Edit implements UpdateInterface {
 

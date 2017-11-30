@@ -1,9 +1,9 @@
 package com.kumpel.dom.bot.controller.cmdcontroller;
 
-import com.kumpel.dom.bot.controller.bdcontroller.dao.*;
-import com.kumpel.dom.bot.model.Action;
-import com.kumpel.dom.bot.model.Area;
-import com.kumpel.dom.bot.model.Node;
+import com.kumpel.dom.bot.model.bd.dao.*;
+import com.kumpel.dom.bot.model.pojo.Action;
+import com.kumpel.dom.bot.model.pojo.Area;
+import com.kumpel.dom.bot.model.pojo.Node;
 
 import java.util.Iterator;
 import java.util.List;

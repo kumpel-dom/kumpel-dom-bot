@@ -1,6 +1,6 @@
 package parser
 
-import com.kumpel.dom.bot.model.Action
+import com.kumpel.dom.bot.model.pojo.Action
 import org.json.JSONObject
 
 /**

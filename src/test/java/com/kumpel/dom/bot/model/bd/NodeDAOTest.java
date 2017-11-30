@@ -1,8 +1,6 @@
-package com.kumpel.dom.bot.controller.bdcontroller;
+package com.kumpel.dom.bot.model.bd;
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class NodeDAOTest {
     @Test

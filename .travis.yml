@@ -14,7 +14,7 @@ env:
 
 before_install:
   - chmod +x gradlew
-  - echo "package com.kumpel.dom.bot.controller.bdcontroller;
+  - echo "package com.kumpel.dom.bot.model.bdcontroller;
           public interface ConnectionInterface {
             String HN = new String();
             String DB = new String();

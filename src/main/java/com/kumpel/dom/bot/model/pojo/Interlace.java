@@ -1,4 +1,4 @@
-package com.kumpel.dom.bot.model;
+package com.kumpel.dom.bot.model.pojo;
 
 public class Interlace {
 

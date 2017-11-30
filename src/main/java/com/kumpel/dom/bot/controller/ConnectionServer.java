@@ -1,6 +1,6 @@
 package com.kumpel.dom.bot.controller;
 
-import com.kumpel.dom.bot.controller.bdcontroller.ReceiveJson;
+import com.kumpel.dom.bot.model.bd.ReceiveJson;
 import org.json.JSONObject;
 
 // Não está funcionando, pode ser a internet daqui

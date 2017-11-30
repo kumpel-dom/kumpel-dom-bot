@@ -1,6 +1,6 @@
-package com.kumpel.dom.bot.model;
+package com.kumpel.dom.bot.model.pojo;
 
-public class Action extends ForeignInterlace{
+public class Action extends ForeignInterlace {
 
     private String state;
 

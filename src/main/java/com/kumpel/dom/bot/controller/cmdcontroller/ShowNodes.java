@@ -1,7 +1,7 @@
 package com.kumpel.dom.bot.controller.cmdcontroller;
 
-import com.kumpel.dom.bot.controller.bdcontroller.dao.NodeDAO;
-import com.kumpel.dom.bot.model.Node;
+import com.kumpel.dom.bot.model.bd.dao.NodeDAO;
+import com.kumpel.dom.bot.model.pojo.Node;
 import org.telegram.telegrambots.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 

@@ -24,7 +24,7 @@ jobs:
     steps:
       - checkout
 
-      - run: echo "package com.kumpel.dom.bot.controller.bdcontroller;public interface ConnectionInterface {String HN = new String();String DB = new String();String URL = new String();String UN = new String();String PW = new String();String DR = new String();}" > src/main/java/com/kumpel/dom/bot/controller/bdcontroller/ConnectionInterface.java
+      - run: echo "package com.kumpel.dom.bot.model.bdcontroller;public interface ConnectionInterface {String HN = new String();String DB = new String();String URL = new String();String UN = new String();String PW = new String();String DR = new String();}" > src/main/java/com/kumpel/dom/bot/controller/bdcontroller/ConnectionInterface.java
       - run: echo "package com.kumpel.dom.bot.view; public interface Token { String TOKEN = new String();}" > src/main/java/com/kumpel/dom/bot/view/Token.java
       # Download and cache dependencies
       - restore_cache:

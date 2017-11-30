@@ -1,9 +1,9 @@
-package com.kumpel.dom.bot.controller.bdcontroller.dao;
+package com.kumpel.dom.bot.model.bd.dao;
 
-import com.kumpel.dom.bot.controller.bdcontroller.DataBaseConnection;
-import com.kumpel.dom.bot.controller.bdcontroller.DataBaseInterface;
+import com.kumpel.dom.bot.model.bd.DataBaseConnection;
+import com.kumpel.dom.bot.model.bd.DataBaseInterface;
 import com.kumpel.dom.bot.controller.cmdcontroller.Sync;
-import com.kumpel.dom.bot.model.Action;
+import com.kumpel.dom.bot.model.pojo.Action;
 import com.mysql.jdbc.CommunicationsException;
 
 import java.sql.Connection;

@@ -1,8 +1,8 @@
-package com.kumpel.dom.bot.controller.bdcontroller.dao;
+package com.kumpel.dom.bot.model.bd.dao;
 
-import com.kumpel.dom.bot.controller.bdcontroller.DataBaseConnection;
-import com.kumpel.dom.bot.controller.bdcontroller.DataBaseInterface;
-import com.kumpel.dom.bot.model.Node;
+import com.kumpel.dom.bot.model.bd.DataBaseConnection;
+import com.kumpel.dom.bot.model.bd.DataBaseInterface;
+import com.kumpel.dom.bot.model.pojo.Node;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

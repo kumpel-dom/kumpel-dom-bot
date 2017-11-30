@@ -1,4 +1,4 @@
-package com.kumpel.dom.bot.controller.bdcontroller;
+package com.kumpel.dom.bot.model.bd;
 
 import java.util.List;
 

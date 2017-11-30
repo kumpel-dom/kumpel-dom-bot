@@ -1,6 +1,6 @@
 package parser
 
-import com.kumpel.dom.bot.model.Area
+import com.kumpel.dom.bot.model.pojo.Area
 import org.json.JSONObject
 
 /**
