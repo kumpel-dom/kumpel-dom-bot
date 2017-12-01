@@ -18,6 +18,7 @@ public class CallBack {
             System.out.println(m.group(0));
             System.out.println(m.group(1));
             answer = m.group(2);
+            answer = "/action";
         }
         return answer;
     }

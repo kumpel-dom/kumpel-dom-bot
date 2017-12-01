@@ -1,4 +1,4 @@
-package com.kumpel.dom.bot.controller.cmdcontroller;
+package com.kumpel.dom.bot.controller.cmd;
 
 public interface UpdateInterface extends JsonGetInterface {
 

@@ -1,4 +1,4 @@
-package com.kumpel.dom.bot.controller.cmdcontroller;
+package com.kumpel.dom.bot.controller.cmd;
 
 import com.kumpel.dom.bot.model.bd.dao.ActionDAO;
 import com.kumpel.dom.bot.model.bd.dao.AreaDAO;
@@ -6,6 +6,8 @@ import com.kumpel.dom.bot.model.bd.dao.NodeDAO;
 import com.kumpel.dom.bot.model.pojo.Action;
 import com.kumpel.dom.bot.model.pojo.Area;
 import com.kumpel.dom.bot.model.pojo.Node;
+import com.vdurmont.emoji.EmojiParser;
+import org.telegram.telegrambots.api.methods.send.SendMessage;
 
 import java.util.Iterator;
 import java.util.List;
@@ -48,5 +50,11 @@ public class Sync implements UpdateInterface {
         while (ite.hasNext()) {
             new ActionDAO().update(ite.next());
         }
+    }
+
+    public static SendMessage sync(long chatId) {
+        new Sync();
+        String answer = EmojiParser.parseToUnicode("Sincronização: ✔️");
+        return new SendMessage().setChatId(chatId).setText(answer);
     }
 }

@@ -58,9 +58,11 @@ public class NodeDAO implements DataBaseInterface<Node> {
     @Override
     public void update(Node table) {
         StringBuilder sql = new StringBuilder();
+
         sql.append("UPDATE nodes ");
         sql.append("SET nodename=? ");
-        sql.append("WHERE nodeid=?");
+        sql.append("WHERE nodeid=? ");
+        sql.append("WHERE nodename=?");
 
         try (Connection conn = DataBaseConnection.connection();
              PreparedStatement pstmt = conn.prepareStatement(sql.toString())) {
